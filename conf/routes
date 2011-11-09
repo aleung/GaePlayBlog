@@ -1,0 +1,38 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET     /                                       Application.index
+GET     /login                                  Application.login
+GET     /logout                                 Application.logout      
+
+GET     /blog/feed.atom                         Blog.showAtom
+GET     /blog/export.json.gzip                  Blog.export
+
+# /blog/posts/?offset={offset}
+GET	    /blog/posts                             Blog.showList
+POST    /blog/posts                             Blog.putPost
+GET     /blog/posts/new                         Blog.newPostForm
+GET     /blog/posts/{<[0-9]+>id}                Blog.showPost
+GET     /blog/posts/{<[0-9]+>id}/editForm       Blog.editPostForm
+DELETE  /blog/posts/{<[0-9]+>id}                Blog.deletePost
+POST    /blog/posts/{<[0-9]+>id}/comment        Blog.addComment
+
+GET     /blog/comments                          Blog.commentList
+GET     /blog/comments/{<[0-9]+>id}/replyForm   Blog.commentReplyForm
+DELETE  /blog/comments/{<[0-9]+>id}             Blog.deleteComment
+POST    /blog/comments/{<[0-9]+>id}/reply       Blog.replyToComment
+
+GET     /blog/import                            Blog.importForm
+POST    /blog/import/blogbus                    Blog.importBlogbus
+
+# /blog/tag/{tag}/posts?offset={offset}
+GET     /blog/tag/{tag}/posts                   Blog.showListByTag
+GET     /blog/tag                               Blog.showTagCloud
+
+# for maintenance only
+GET     /blog/refreshTags                       Blog.refreshTags
+
+# Map static resources from the /app/public folder to the /public path
+GET     /public/                                staticDir:public
+GET     /                                       staticDir:public

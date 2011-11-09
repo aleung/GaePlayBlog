@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set htmlTitle:'Leo Liang' /}
+
+<h1>Personal web site of Leo Liang</h1>
+
+<ul>
+<li>#{a @Blog.showList()}Blog#{/a}</li>
+</ul>
+
+#{ifnot user}
+<p>#{a @login()}Admin login#{/a}</p>
+#{/ifnot}
+#{else}
+<p>You're logging in as <b>${user}</b>. #{a @logout()}Logout#{/a}</p>
+#{/else}

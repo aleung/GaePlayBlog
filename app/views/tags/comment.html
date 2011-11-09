@@ -1,0 +1,14 @@
+<div class="dt">
+  <span class="author">by <b>#{if _comment.link}<a href="${_comment.link}">${_comment.by}</a>#{/if}#{else}${_comment.by}#{/else}</b></span> 
+  <span class="date">#{date date:_comment.date/}</span>
+</div>
+<div class="dd">
+  <div class="about"> </div>
+  ${_comment.content.escape().nl2br()}
+  #{if _comment.reply}
+    <div class="adminReply">${_comment.reply.escape().nl2br()}</div>
+  #{/if}
+  #{if _isAdmin}
+    <p>#{a @Blog.commentReplyForm(_comment.id)}delete/reply#{/a}</p>
+  #{/if}
+</div>

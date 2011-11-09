@@ -1,0 +1,56 @@
+#{extends 'main.html' /}
+#{set htmlTitle:post.title /}
+
+#{post post:post/}
+
+#{if isAdmin}
+<div class="admin">
+<div class="section">Post admin</div>
+#{form @Blog.editPostForm(post.id)}
+<input type="submit" value="Edit"/>
+#{/form}
+</div>
+#{/if}
+
+%{comments = post.getComments()}%
+#{if comments.size() > 0}
+<div class="dialog">
+<div class="section">${comments.size()} comments</div>    
+#{list comments, as:'comment'}
+  #{comment comment:comment, isAdmin:isAdmin/}
+#{/list}
+</div>
+#{/if}     
+
+<div class="commentForm">
+<div class="section">Post a comment</div>
+#{ifnot loginUser}
+<p>#{a @Application.login(request.url)}Login#{/a} with your Google account to post a comment</p>
+#{/ifnot}
+#{else}
+#{form @Blog.addComment(post.id)}
+<p>
+  #{field "by"}
+  <label for="comment.by">Nick name (show your email if not input)</label>
+  <input id="comment.by" name="${field.name}" type="text" class="${field.errorClass}" value="${flash['by']}"/>
+  #{/field}
+</p>
+<p>
+  #{field "link"}
+  <label for="link">Web site (optional)</label>
+  <input id="link" name="${field.name}" type="text" class="${field.errorClass}" value="${flash['link']}"/>
+  #{/field}
+</p>
+<p>
+  #{field "content"}
+  <label for="content">Comment</label>
+  <textarea id="content" name="${field.name}" rows="5" cols="50" class="${field.errorClass}">${flash['content']}</textarea>
+  #{/field}
+</p>
+<p>
+  <input type="submit" value="Add comment"/>
+</p>
+#{/form}
+#{/else}
+</div>
+

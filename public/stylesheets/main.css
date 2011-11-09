@@ -1,0 +1,316 @@
+/** Main layout **/
+
+html, body {
+    background: #364b66 !important;
+    font-family: "Microsoft YaHei", Helvetica, Arial, Sans !important;
+}
+
+body {
+    padding: 0 30px;
+    margin: auto;
+}
+
+a img {
+	border: 0;
+}
+
+.section {
+    color: #869AB1;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+#main {
+    margin-right: 275px;
+}
+	
+/** Login **/
+
+.login {
+    text-align: right;  
+    color: #a0a0a0
+}
+
+.login a {
+	color: inherit
+}
+
+/** Header **/
+
+#header {
+    background: #B8C569;
+    padding: 20px 30px 30px 20px;
+    margin: 20px 0;
+    color: #3C4313;
+    position: relative;
+    -webkit-border-radius: 16px;
+    -webkit-box-shadow: 0 2px 0 #93A045;
+    -moz-border-radius: 16px;
+}
+
+/** A little hacky to create arrows without images **/
+#header .about {
+    text-indent: -999em;
+    display: block;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #BAC36E;
+    border-top: 0;
+    position: absolute;
+    top: -10px;
+    left: 60px;
+}
+
+#header h1 {
+    font-size: 64px;
+    margin: 0;
+}
+
+#header a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#header h2 {
+    font-size: 26px;
+    margin: 0px;
+    font-weight: normal;
+}
+
+/** Post **/
+
+.article {
+	margin: 0 0 40px;
+}
+
+.article .title {
+    font-size: 36px;
+    color: #BAC36E;
+	margin: 0;
+}
+
+.article .title a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.article .metadata {
+    color: #BAC36E;
+    display: block;
+    font-size: 75%;
+    display: inline-block;
+}
+
+.article .metadata a {
+    color: #9FA85D;
+}
+
+.article .content {
+    position: relative;
+    background: #fff;
+    padding: 10px;
+    margin: 10px 0 10px 0;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-box-shadow: 0 2px 0 #BBBBBB;
+}
+
+.article .about {
+    text-indent: -999em;
+    display: block;
+    width: 0; 
+    height: 0; 
+    border-left: 10px solid transparent; 
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #fff;
+    border-top: 0;
+    position: absolute;
+    top: -6px;
+    left: 24px;
+}
+
+blockquote {
+	border-left: 5px solid #CCC;
+	padding-left: 10px;
+}
+
+pre {
+    background: #f0f0f0;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    overflow: auto;
+    overflow-Y: hidden;  /*--Hides vertical scroll created by IE--*/
+}
+
+code {
+	font-family: "Consolas", monospace;
+}
+
+/** Comments **/
+
+.dialog {
+    margin-bottom: 30px;
+}
+
+.dialog a {
+	color: inherit;
+}
+
+.dialog .dt {
+    color: #869AB1;
+    display: block;
+    font-size: 50%;
+    display: block;
+    float: left;
+    width: 180px;
+    text-align: right;
+}
+
+.dialog .dt .author {
+    font-size: 150%;
+    display: block;
+}
+
+.dialog .dd {
+    position: relative;
+    background: #E4EAFF;
+    color: #242C58;
+    font-size: 80%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 200px;
+    padding: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+.dialog .dd .about {
+    text-indent: -999em;
+    display: block;
+    width: 0; 
+    height: 0; 
+    border-top: 10px solid transparent; 
+    border-bottom: 10px solid transparent;
+    border-right: 10px solid #E4EAFF;
+    border-left: 0;
+    position: absolute;
+    top: 4px;
+    left: -4px;
+}
+
+.commentForm {
+}
+
+.adminReply {
+	background-color: white;
+	border: 1px solid #94DA3A;
+	display: block;
+	margin: 5px 0px;
+	padding: 5px 10px;
+}
+
+
+/** Form **/
+
+form {
+    padding: 10px;
+    background: #253142;
+    background: -webkit-gradient(linear, left top, left 60%, from(#253142), to(#364B66));
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+}
+
+form .error {
+    background: #c00;
+    color: #fff;
+    font-size: 90%;
+    padding: 3px 5px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #800;
+}
+
+form p {
+    margin: 5px 0 0 0;
+}
+
+form textarea {
+    width: 70%;
+    height: 150px;
+}
+
+form input, form textarea {
+    font-size: 14px;
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    font-size: 90%;
+    color: #aaa;
+    margin-bottom: 3px;
+}
+
+#captcha{
+    display: block;
+    height: 50px;  
+}
+
+.success {
+    background: #67AD10;
+    color: #fff;
+    padding: 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #4E840B; 
+}
+
+.hasError {
+    background: red;
+    color: white;
+}
+
+/** Pagination **/
+
+.pagination {
+	color: #869AB1;
+}
+
+.pagination a {
+	color: inherit;
+}
+
+/** Footer **/
+
+#footer {
+    clear: both;
+	border-top: 1px solid #45597A;
+    font-size: 80%;
+    padding: 10px 30px;
+    text-align: center;
+    color: #869AB1;
+    margin-top: 30px;
+}
+
+#footer a {
+    color: inherit;
+}
+
+/** Sidebar **/
+
+#aside {
+	width: 260px;
+    float: right;
+}
+
+#aside .block {
+    border-radius: 6px;
+    -webkit-box-shadow: 0 2px 0 #7080A0;
+    -moz-border-radius: 6px;
+	background: #869AB1;
+	padding: 5px;
+	margin-top: 20px;
+}

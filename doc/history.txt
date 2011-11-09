@@ -1,0 +1,55 @@
+0.15 (1)  2011-2-13
+  - Add Twitter and Buzz button
+  
+0.14 (1)  2010-9-23
+  - Show tag cloud at side bar
+
+0.13 (1)  2010-6-25
+  - Auto save draft to browser local storage every 10 seconds during post editing
+  
+0.12 (1)  2010-3-23
+  - Comment list pagination
+  - Export all posts and comments as JSON
+
+0.11 (1)  2010-2-27
+  - Update CSS for pre, code and blockquote
+  - Add notice of GFW
+  
+0.10 (1)  2010-2-21
+  - Add delete comment feature
+  - Move delete post into edit page
+
+0.9  (1)  2010-2-21
+  - Admin can reply to comment, email notification will also be sent
+  - Add robots.txt
+  
+0.8  (1)  2010-2-16
+  - Add Google Reader share items into side bar
+  - Add powered by logo
+  
+0.7  (1)  2010-2-15
+  - Update view and css, add side bar, remove HTML5 tags
+  - Fix atom date format to xsd:date
+  - Add google search in side bar
+  
+0.6  (1)  2010-2-14
+  - Import BlogBus XML
+  - Force display date in GMT+8 time zone
+
+0.5  (1)  2010-2-14
+  - Add edit post feature
+  - Show initial date if the post was modified
+  - Add comments list page
+  - Delete a post also delete its comments
+
+0.4  (1)  2010-2-12
+  - Add atom feed
+  
+0.3  (1)  2010-2-11
+  - Integrate with Google account
+
+0.2  (1)  2010-2-9
+  - Minimal feature set finished. Begin online test on GAE.
+
+0.1  (1)  2010-2-4
+  - Initial version published onto GAE

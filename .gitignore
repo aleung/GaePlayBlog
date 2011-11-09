@@ -1,0 +1,42 @@
+.*
+*~
+
+# exception
+!.gitignore
+!.htaccess
+
+# hg #
+/.hg/*
+*/.hg/*
+.hgignore
+
+# OSX #
+.DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Java #
+*.class
+*.jar
+*.war
+*.ear
+
+# Ignore Play! working directory #
+db
+eclipse
+log
+logs
+precompiled
+tmp
+test-result
+eclipse
+server.pid
+
+# Eclipse #
+bin/**
+tmp/**
+tmp/**/*
+*~.nib
+local.properties
+*.launch

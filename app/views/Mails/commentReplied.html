@@ -1,0 +1,7 @@
+<html><body>
+<p>Hi ${comment.by},</p>
+<p>Your comment to the post <a href="@@{Blog.showPost(post.id)}">${post.title}</a> in <a href="@@{Application.index()}">Good good study, day day up</a> has been replied by the blog owner:</p>
+<p>${comment.reply.escape().nl2br()}</p>
+<hr/>
+<p>This is an automatic notification, please <b>DO NOT</b> reply. Leave comment on the blog instead.</p>
+</body></html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>#{get 'htmlTitle' /}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="google-site-verification" content="Y44-jf9ct-8LVfeun6kBREVMXLxJAzMdM0gzznuoDN8" />
+    <link rel="stylesheet" type="text/css" media="screen" href="@{'/public/stylesheets/main.css'}">
+    <link rel="alternate" type="application/rss+xml" href="http://feeds.feedburner.com/GoodGoodStudyDayDayUp" title="good good study, day day up">
+    #{get 'moreStyles' /}
+    <link rel="shortcut icon" type="image/png" href="@{'/public/images/favicon.png'}">
+    <link rel="me" type="text/html" href="http://www.google.com/profiles/leoliang"/>
+    <script src="@{'/public/javascripts/jquery-1.4.min.js'}" type="text/javascript" charset="utf-8"></script>
+    #{get 'moreScripts' /}
+  </head>
+  <body>
+    <div class="login">
+	  #{if loginUser}
+	    ${loginUser} | #{a @Application.logout(request.url)}logout#{/a}
+	  #{/if}
+	  #{else}
+	    #{a @Application.login(request.url)}Login#{/a}
+	  #{/else}
+    </div>
+    
+    #{if flash.error}
+        <p class="error">${flash.error}</p>
+    #{/if}
+    #{if flash.success}
+        <p class="success">${flash.success}</p>
+    #{/if}
+    
+    <div id="header">
+      <h1>#{a @Blog.showList()}good good study, day day up#{/a}</h1>
+      <h2>aleung的学习笔记, aleung的idea</h2>
+    </div>
+
+    <div id="nav">
+    <!-- nav bar here -->
+	</div>
+
+    <div id="aside">
+      <div class="block">
+                中国大陆用户可能会因为网络被屏蔽而无法访问本网站或部分内容(文字/图片), 如遇到这种情况, 请翻墙访问：#{a @Blog.showListByTag('Anti-GFW')}翻墙教程#{/a}
+      </div>
+      <div class="block">
+		<div id="cse" style="width: 100%;">Google Search Loading ...</div>
+		<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+		<script type="text/javascript">
+		  google.load('search', '1', {language : 'en'});
+		  google.setOnLoadCallback(function(){
+		    var customSearchControl = new google.search.CustomSearchControl('015589990198400883133:af7nin3xyeg');
+		    customSearchControl.setResultSetSize(google.search.Search.SMALL_RESULTSET);
+		    customSearchControl.draw('cse');
+		  }, true);
+		</script>
+		<link rel="stylesheet" href="http://www.google.com/cse/style/look/shiny.css" type="text/css" />
+		<style type="text/css">
+		  .gsc-control-cse {
+		    font-family: Verdana, sans-serif;
+		    border-color: #869ab1;
+		    background-color: #869AB1;
+		  }
+		</style>
+      </div>
+      <div class="block">
+		<script type="text/javascript" src="https://www.google.com/reader/ui/publisher-en.js"></script>
+		<script type="text/javascript" src="https://www.google.com/reader/public/javascript/user/17417911235960660087/state/com.google/broadcast?n=8&callback=GRC_p(%7Bc%3A%22blue%22%2Ct%3A%22Shared%20from%20web%22%2Cs%3A%22false%22%2Cn%3A%22true%22%2Cb%3A%22false%22%7D)%3Bnew%20GRC"></script>      
+      </div>
+      <div class="block">
+        <a href="http://www.twitter.com/acette"><img src="http://twitter-badges.s3.amazonaws.com/follow_me-b.png" alt="Follow acette on Twitter"/></a>
+		<a target="_blank" title="Follow on Google Buzz" class="google-buzz-button" href="http://www.google.com/profiles/leoliang" data-button-style="follow">Follow on Buzz</a>
+		<script type="text/javascript" src="http://www.google.com/buzz/api/button.js"></script>        
+      </div>
+      <div class="block">
+        <div id="tagCloud" style="width: 100%;">Tag Cloud Loading ...</div>
+        <script type="text/javascript">
+        $(document).ready(function() {
+          var tagCloud = #{jsAction @Blog.showTagCloud() /}
+          $("#tagCloud").load(tagCloud())
+        })
+        </script>
+      </div>
+      <div class="block">
+        #{a @Blog.commentList()}Comments#{/a} 
+      </div>
+      <div class="block">
+        <a href="http://www.playframework.org"><img src="http://download.playframework.org/graphics/badges/badge-green.png" alt="Powered by Play Framwork"/></a>
+        <a href="http://code.google.com/appengine/"><img src="http://code.google.com/appengine/images/appengine-silver-120x30.gif" alt="Powered by Google App Engine"/></a>
+      </div>
+    </div>
+
+	<div id="main">
+ 	  #{doLayout /}
+	</div>
+
+    <div id="footer">
+    Copyright 2010 <a href="http://www.google.com/profiles/leoliang">Leo Liang</a>. 采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">知识共享：署名-非商业性使用-相同方式共享 2.5 许可协议</a>进行许可.
+    </div>
+	
+	<script type="text/javascript">
+	var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+	document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+	</script>
+	<script type="text/javascript">
+	try {
+	var pageTracker = _gat._getTracker("UA-2827715-3");
+	pageTracker._trackPageview();
+	} catch(err) {}</script>	
+  </body>
+</html>

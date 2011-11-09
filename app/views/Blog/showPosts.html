@@ -1,0 +1,38 @@
+#{extends 'main.html' /}
+#{set htmlTitle:'good good study, day day up' /}
+
+#{list posts, as:'post'}
+  #{post post:post/}
+#{/list} 
+
+<div class="pagination">
+#{if paginationInfo.from > 1}
+  #{if paginationInfo.tag.isEmpty()}
+    #{a @Blog.showList().add("offset", paginationInfo.from - paginationInfo.pageSize - 1)}&lt; newer#{/a}
+  #{/if}
+  #{else}
+    #{a @Blog.showListByTag(paginationInfo.tag).add("offset", paginationInfo.from - paginationInfo.pageSize - 1)}&lt; newer#{/a}
+  #{/else}
+#{/if}
+&nbsp;&nbsp;
+Posts <b>${paginationInfo.from}</b> - <b>${paginationInfo.to}</b> of <b>${paginationInfo.totalSize}</b>
+#{ifnot paginationInfo.tag.isEmpty()}
+  &nbsp;&nbsp;Filtered by tag: <b>${paginationInfo.tag}</b> [#{a @Blog.showList()}x#{/a}]
+#{/ifnot}
+&nbsp;&nbsp;
+#{if paginationInfo.to < paginationInfo.totalSize}
+  #{if paginationInfo.tag.isEmpty()}
+    #{a @Blog.showList().add("offset",paginationInfo.to)}older &gt;#{/a}
+  #{/if}
+  #{else}
+    #{a @Blog.showListByTag(paginationInfo.tag).add("offset",paginationInfo.to)}older &gt;#{/a}
+  #{/else}
+#{/if}
+</div>
+
+#{if isAdmin}
+<div>
+#{a @Blog.newPostForm()}New post#{/a}
+</div>
+#{/if}
+

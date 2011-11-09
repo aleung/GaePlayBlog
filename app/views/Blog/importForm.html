@@ -1,0 +1,8 @@
+#{extends 'main.html' /}
+#{set htmlTitle:'Import' /}
+
+<h1>Import Blogbus XML</h1>
+#{form @Blog.importBlogbus()}
+<p><input type="submit" value="Import"/></p>
+<p><textarea name="xml"/></p>
+#{/form}

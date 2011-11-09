@@ -1,0 +1,22 @@
+#{extends 'main.html' /}
+#{set htmlTitle:'Comments' /}
+
+<div class="dialog">
+<h3>Comments</h3>    
+#{list comments, as:'comment'}
+  <p>#{a @Blog.showPost(comment.getPost().id)}${comment.getPost().title}#{/a}</p>
+  #{comment comment:comment, isAdmin:isAdmin/}
+#{/list}
+</div>
+
+<div class="pagination">
+#{if paginationInfo.from > 1}
+    #{a @Blog.commentList().add("offset", paginationInfo.from - paginationInfo.pageSize - 1)}&lt; newer#{/a}
+#{/if}
+&nbsp;&nbsp;
+Posts <b>${paginationInfo.from}</b> - <b>${paginationInfo.to}</b> of <b>${paginationInfo.totalSize}</b>
+&nbsp;&nbsp;
+#{if paginationInfo.to < paginationInfo.totalSize}
+    #{a @Blog.commentList().add("offset",paginationInfo.to)}older &gt;#{/a}
+#{/if}
+</div>

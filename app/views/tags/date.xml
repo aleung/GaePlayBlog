@@ -1,0 +1,5 @@
+%{
+format = new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+format.setTimeZone(TimeZone.getTimeZone("GMT"));
+}%
+${format.format(_date)}

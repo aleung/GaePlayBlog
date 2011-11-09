@@ -1,0 +1,26 @@
+<div class="article">
+  <div class="title">#{a @Blog.showPost(_post.id)}${_post.title}#{/a}</div>
+  <div class="metadata">
+  #{date date:_post.date/}
+  #{if _post.date.after(_post.initialDate)}
+  &nbsp;&nbsp;( Initial: #{date date:_post.initialDate/} )
+  #{/if}
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  #{list _post.tags, as:'tag'}
+    #{ifnot tag.isEmpty()}
+      #{a @Blog.showListByTag(tag)}${tag}#{/a}
+    #{/ifnot}
+  #{/list}
+  </div>
+  <div class="content">
+    <div class="about"> </div>
+    ${_post.content.raw()}
+  </div>
+  <div class="metadata">
+    #{a @Blog.showPost(_post.id)}
+      #{if _post.getCommentCount() > 1 }${_post.getCommentCount()} comments#{/if}
+      #{else}${_post.getCommentCount()} comment#{/else}
+    #{/a}
+  </div>
+</div>
+    

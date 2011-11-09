@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+<feed xmlns="http://www.w3.org/2005/Atom">
+ 
+    <title>good good study, day day up</title>
+    <subtitle>aleung的学习笔记, aleung的idea</subtitle>
+    <link href="@@{Blog.showAtom()}" rel="self" />
+    <link href="@@{Blog.showList()}" />
+    <id>urn:uuid:41e3af79-dfec-3bad-9907-81736365e78b</id>
+    <updated>#{date date:Calendar.getInstance().getTime()/}</updated>
+    <author>
+        <name>Leo Liang</name>
+        <uri>https://www.google.com/profiles/leoliang</uri>
+    </author>
+    <rights type="xhtml">
+      <div xmlns="http://www.w3.org/1999/xhtml">Copyright 2010 <a href="http://www.google.com/profiles/leoliang">Leo Liang</a>. 采用<a href="http://creativecommons.org/licenses/by-nc-sa/2.5/cn/">知识共享：署名-非商业性使用-相同方式共享 2.5 许可协议</a>进行许可.</div>
+    </rights>
+#{list posts, as:'post'}
+    <entry>
+        <title>${post.title}</title>
+        <link rel="alternate" type="text/html" href="@@{Blog.showPost(post.id)}"/>
+        <id>urn:uuid:${UUID.nameUUIDFromBytes(String.valueOf(post.id).getBytes()).toString();}</id>
+        <published>#{date date:post.initialDate/}</published>
+        <updated>#{date date:post.date/}</updated>
+        <content type="html">${post.content.escape()}</content>
+    </entry>
+#{/list} 
+</feed>

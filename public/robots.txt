@@ -1,0 +1,7 @@
+User-agent: FeedBurner
+Allow: /blog/feed
+Disallow: /
+
+User-agent: *
+Allow: /blog/posts
+Disallow: /
