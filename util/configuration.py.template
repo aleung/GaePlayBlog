@@ -1,0 +1,5 @@
+config = {
+	# http://fanyi.youdao.com/openapi
+	'keyfrom' : 'your_id',
+	'key' : 'your_key',
+}
