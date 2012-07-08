@@ -19,7 +19,7 @@
     <entry>
         <title>${post.title}</title>
         <link rel="alternate" type="text/html" href="@@{Blog.showPost(post.id)}"/>
-        <id>urn:uuid:${UUID.nameUUIDFromBytes(String.valueOf(post.id).getBytes()).toString();}</id>
+        <id>urn:uuid:${UUID.nameUUIDFromBytes(String.valueOf(post.id).getBytes()).toString()}</id>
         <published>#{date date:post.initialDate/}</published>
         <updated>#{date date:post.date/}</updated>
         <content type="html">${post.content.escape()}</content>
