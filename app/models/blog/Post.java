@@ -156,8 +156,8 @@ public class Post extends Model {
         for (Comment comment : getComments()) {
             comments[index++] = comment.toJson();
         }
-        Json json = Json.map().put("id", id).put("title", title).put("date", date.getTime()).put("content", content)
-                .put("published", published).put("tags", tags).put("comments", comments);
+        Json json = Json.map().put("id", id).put("title", title).put("date", date.getTime()).put("initialDate", initialDate.getTime())
+                .put("content", content).put("published", published).put("tags", tags).put("comments", comments);
         return json.toString();
     }
 }
